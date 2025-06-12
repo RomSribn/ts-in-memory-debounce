@@ -48,4 +48,40 @@ export interface Storage {
    * @returns Array of matched records.
    */
   query(criteria?: QueryCriteria): Record[];
+
+  /**
+   * Removes a record by id.
+   *
+   * @param id - The id of the record to remove.
+   * @returns true if record was removed, false if not found.
+   */
+  remove(id: string): boolean;
+
+  /**
+   * Updates an existing record.
+   *
+   * @param record - The updated record.
+   * @throws Error when record doesn't exist or is invalid.
+   */
+  update(record: Record): void;
+
+  /**
+   * Checks if a record exists.
+   *
+   * @param id - The id to check.
+   * @returns true if record exists, false otherwise.
+   */
+  exists(id: string): boolean;
+
+  /**
+   * Returns the number of records in storage.
+   *
+   * @returns The count of records.
+   */
+  size(): number;
+
+  /**
+   * Removes all records from storage.
+   */
+  clear(): void;
 }

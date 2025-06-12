@@ -2,10 +2,15 @@
   "name": "ts-in-memory-debounce",
   "version": "1.0.0",
   "description": "A TypeScript project that implements an in-memory storage with tag filtering and a fully typed debounce utility.",
-  "main": "eslint.config.js",
+  "main": "dist/index.js",
   "type": "module",
   "scripts": {
-    "test": "jest"
+    "build": "tsc",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",

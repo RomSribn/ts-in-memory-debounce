@@ -6,7 +6,7 @@ export default [
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
-    files: ['**/*.ts'],
+    files: ['src/**/*.ts'],
     plugins: { import: importPlugin },
     languageOptions: {
       parser: tseslint.parser,
@@ -28,6 +28,14 @@ export default [
           project: './tsconfig.json',
         },
       },
+    },
+  },
+  {
+    files: ['*.ts', '*.js'],
+    ignores: ['src/**/*'],
+    rules: {
+      semi: ['error', 'always'],
+      quotes: ['error', 'single'],
     },
   }
 ];

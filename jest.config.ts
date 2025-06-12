@@ -9,11 +9,12 @@ const config: Config = {
     '^#(.*)$': '<rootDir>/src/$1',
     '^@/(.*)$': '<rootDir>/src/$1',
   },
-  globals: {
-    'ts-jest': {
-      tsconfig: './tsconfig.json',
-    },
+  transform: {
+    '^.+\\.ts$': ['ts-jest', {
+      tsconfig: './tsconfig.json'
+    }]
   },
+  extensionsToTreatAsEsm: ['.ts'],
 };
 
 export default config;

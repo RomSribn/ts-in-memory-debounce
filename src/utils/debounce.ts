@@ -6,21 +6,6 @@ export interface DebounceOptions {
    * Time in milliseconds to wait before allowing the next call.
    */
   wait: number;
-
-  /**
-   * If true, the function is invoked on the leading edge of the wait interval.
-   */
-  leading?: boolean;
-
-  /**
-   * If true, the function is invoked on the trailing edge of the wait interval.
-   */
-  trailing?: boolean;
-
-  /**
-   * Maximum time in milliseconds to delay function call.
-   */
-  maxWait?: number;
 }
 
 /**

@@ -1,0 +1,19 @@
+{
+  "name": "ts-in-memory-debounce",
+  "version": "1.0.0",
+  "description": "A TypeScript project that implements an in-memory storage with tag filtering and a fully typed debounce utility.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RomSribn/ts-in-memory-debounce.git"
+  },
+  "author": "Roman Sribnyi <roma.sribnyi@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RomSribn/ts-in-memory-debounce/issues"
+  },
+  "homepage": "https://github.com/RomSribn/ts-in-memory-debounce#readme"
+}

@@ -2,7 +2,8 @@
   "name": "ts-in-memory-debounce",
   "version": "1.0.0",
   "description": "A TypeScript project that implements an in-memory storage with tag filtering and a fully typed debounce utility.",
-  "main": "index.js",
+  "main": "eslint.config.js",
+  "type": "module",
   "scripts": {
     "test": "jest"
   },
@@ -15,5 +16,21 @@
   "bugs": {
     "url": "https://github.com/RomSribn/ts-in-memory-debounce/issues"
   },
-  "homepage": "https://github.com/RomSribn/ts-in-memory-debounce#readme"
+  "homepage": "https://github.com/RomSribn/ts-in-memory-debounce#readme",
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^24.0.1",
+    "@typescript-eslint/eslint-plugin": "^8.34.0",
+    "@typescript-eslint/parser": "^8.34.0",
+    "eslint": "^9.28.0",
+    "eslint-plugin-import": "^2.31.0",
+    "jest": "^30.0.0",
+    "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.34.0"
+  },
+  "dependencies": {
+    "eslint-import-resolver-typescript": "^4.4.3"
+  }
 }

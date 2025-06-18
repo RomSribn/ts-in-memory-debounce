@@ -47,11 +47,10 @@ export function debounce<F extends (...args: unknown[]) => unknown>(
   let timeout: ReturnType<typeof setTimeout> | null = null;
   let lastArgs: Parameters<F> | null = null;
   let lastThis: unknown = null;
-  let lastCallTime = 0;
+
   const { wait } = opts;
 
   const invoke = (): ReturnType<F> | void => {
-    lastCallTime = Date.now();
     if (lastArgs) {
       const result = fn.apply(lastThis, lastArgs) as ReturnType<F>;
       lastArgs = null;
@@ -60,7 +59,7 @@ export function debounce<F extends (...args: unknown[]) => unknown>(
     return undefined;
   };
 
-  const debounced = function (this: unknown, ...args: Parameters<F>) {
+  const debounced: Debounced<F> = function (this: unknown, ...args: Parameters<F>) {
     lastArgs = args;
     // We're saving `this` context explicitly because `fn` might rely on it during later invocation.
     // This is necessary to preserve correct behavior when using `flush()` or `forceNext()`,
@@ -68,17 +67,9 @@ export function debounce<F extends (...args: unknown[]) => unknown>(
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     lastThis = this;
 
-    const now = Date.now();
-    if (now - lastCallTime >= wait) {
-      return invoke();
-    }
-
-    if (timeout) {
-      clearTimeout(timeout);
-    }
-
+    if (timeout) clearTimeout(timeout);
     timeout = setTimeout(invoke, wait);
-  } as Debounced<F>;
+  };
 
   debounced.forceNext = () => {
     if (timeout) {

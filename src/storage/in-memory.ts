@@ -31,13 +31,7 @@ export class InMemoryStorage implements Storage {
       throw new StorageError(`Record with id '${record.id}' already exists`, 'DUPLICATE_ID');
     }
     
-    // Create a deep copy to prevent external mutations
-    const recordCopy: Record = {
-      id: record.id,
-      tags: [...record.tags]
-    };
-    
-    this.records.set(record.id, recordCopy);
+    this.records.set(record.id, this.copyRecord(record));
   }
 
   /**
@@ -92,12 +86,7 @@ export class InMemoryStorage implements Storage {
       throw new StorageError(`Record with id '${record.id}' not found`, 'RECORD_NOT_FOUND');
     }
     
-    const recordCopy: Record = {
-      id: record.id,
-      tags: [...record.tags]
-    };
-    
-    this.records.set(record.id, recordCopy);
+    this.records.set(record.id, this.copyRecord(record));
   }
 
   /**
